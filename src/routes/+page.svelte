@@ -1,13 +1,10 @@
+<!-- Main Entry Point -->
+
 <main>
   <section class="hero">
-    <h1>Svelte Tutorial Work</h1>
-    <h2>Tutorial Work Dumped here</h2>
+    <h1>Main Tutorial Sections</h1>
+    <h2>Clic the buttons to go to the relevant lessson</h2>
   </section>
 
-  <section class="card">
-    <div class="card-content">
-      <h2>Contact</h2>
-      <p>Some content here.</p>
-    </div>
-  </section>
+  <a href="/Page1" class="btn-glow"> Page1</a>
 </main>

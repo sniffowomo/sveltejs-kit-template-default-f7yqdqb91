@@ -46,6 +46,11 @@ body {
     linear-gradient(180deg, var(--bg), var(--bg-secondary));
 
   overflow-x: hidden;
+
+  /* Center everything in body as well */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* ambient glows */
@@ -82,120 +87,115 @@ body::after {
   right: -150px;
 }
 
-/* main layout */
-
+/* main layout - centered and stacked */
 main {
   width: min(1400px, 100%);
-  margin-inline: auto;
+  max-width: 1400px;
 
+  /* Center the main container */
+  margin: 0 auto;
+
+  /* Stack children vertically */
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
+  /* Space between sections */
   gap: 4rem;
 
+  /* Padding - no top padding to avoid extra space */
   padding: 0 clamp(1rem, 4vw, 3rem) 6rem;
 }
 
-/* hero - removed full viewport height */
+/* Every direct child of main is a centered column */
+main > * {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
+/* hero section - naturally centered */
 .hero {
   width: 100%;
+  max-width: 1200px;
 
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
-
   text-align: center;
 
   gap: 1.5rem;
-
-  padding: 4rem 0;
+  padding: 2rem 0;
 }
 
-/* reusable glass cards */
-
+/* reusable glass cards - fully centered */
 .card {
   width: min(1100px, 100%);
+  max-width: 1100px;
 
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
-
   text-align: center;
 
   padding: clamp(2rem, 5vw, 4rem);
 
   background: var(--panel);
-
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
   border-radius: 32px;
-
   border: 1px solid rgba(0, 255, 157, 0.15);
-
   box-shadow: 0 0 60px rgba(0, 255, 157, 0.04),
     inset 0 0 60px rgba(0, 255, 157, 0.03);
 
   position: relative;
-
   overflow: hidden;
 }
 
 .card::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.04),
     transparent 40%
   );
-
   pointer-events: none;
 }
 
 .card-content {
   width: min(900px, 100%);
+  max-width: 900px;
 
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
-
   text-align: center;
 
   gap: 1.5rem;
 }
 
-/* headings */
-
+/* headings - always centered */
 h1 {
   font-family: var(--font-display);
-
-  font-size: clamp(3rem, 3vw, 8rem);
-
+  font-size: clamp(3rem, 5vw, 8rem);
   font-weight: 800;
-
   line-height: 1;
-
   letter-spacing: 0.08em;
-
   text-transform: uppercase;
+  text-align: center;
 
   background: linear-gradient(180deg, #ffffff, var(--neon));
-
   -webkit-background-clip: text;
   background-clip: text;
-
   color: transparent;
 
   text-shadow: 0 0 20px rgba(0, 255, 157, 0.8), 0 0 50px rgba(0, 255, 157, 0.3);
@@ -203,69 +203,51 @@ h1 {
 
 h2 {
   font-family: var(--font-display);
-
   font-size: clamp(1rem, 2vw, 1.8rem);
-
   font-weight: 600;
-
   text-transform: uppercase;
-
   letter-spacing: 0.2em;
+  text-align: center;
 
   color: var(--neon);
-
   text-shadow: 0 0 10px rgba(0, 255, 157, 0.6);
 }
 
 h3 {
   font-family: var(--font-display);
-
   font-size: clamp(1.2rem, 3vw, 2rem);
-
+  text-align: center;
   color: var(--neon);
 }
 
-/* text */
-
+/* text - centered with max-width */
 p {
   max-width: 700px;
-
+  width: 100%;
   font-size: 1.1rem;
-
   line-height: 1.8;
-
+  text-align: center;
   color: var(--text-muted);
 }
 
-/* buttons */
-
+/* buttons - centered group */
 button,
 .btn {
   min-width: 180px;
-
   padding: 1rem 2rem;
-
   border-radius: 16px;
-
   border: 1px solid rgba(0, 255, 157, 0.35);
-
   background: linear-gradient(
     180deg,
     rgba(0, 255, 157, 0.25),
     rgba(0, 255, 157, 0.08)
   );
-
   color: white;
-
   font-family: var(--font-display);
-
   font-size: 0.95rem;
   font-weight: 700;
-
   cursor: pointer;
-
   backdrop-filter: blur(10px);
-
   transition: transform 0.25s ease, box-shadow 0.25s ease,
     border-color 0.25s ease;
 }
@@ -273,9 +255,7 @@ button,
 button:hover,
 .btn:hover {
   transform: translateY(-3px);
-
   border-color: var(--neon);
-
   box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
 }
 
@@ -284,39 +264,29 @@ button:active,
   transform: translateY(0);
 }
 
-/* button groups */
-
+/* button groups - centered and responsive */
 .actions,
 .button-group {
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   flex-wrap: wrap;
-
   gap: 1rem;
-
   margin-top: 1rem;
+  width: 100%;
 }
 
-/* forms */
-
+/* forms - centered inputs */
 input,
 textarea,
 select {
   width: min(500px, 100%);
-
+  max-width: 500px;
   padding: 1rem 1.25rem;
-
   border-radius: 14px;
-
   background: rgba(255, 255, 255, 0.03);
-
   border: 1px solid rgba(0, 255, 157, 0.15);
-
   color: white;
-
   font: inherit;
 }
 
@@ -324,45 +294,35 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-
   border-color: var(--neon);
-
   box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
 }
 
-/* code */
-
+/* code blocks - centered */
 pre {
   width: 100%;
-
+  max-width: 900px;
   padding: 1.5rem;
-
   overflow-x: auto;
-
   border-radius: 18px;
-
   background: rgba(255, 255, 255, 0.03);
-
   border: 1px solid rgba(0, 255, 157, 0.08);
-
   font-family: var(--font-mono);
-
   color: #d7fff0;
 }
 
-/* links */
-
+/* links - centered */
 a {
   color: var(--neon);
   text-decoration: none;
+  text-align: center;
 }
 
 a:hover {
   text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
 }
 
-/* utilities */
-
+/* utilities for centering */
 .center {
   display: flex;
   align-items: center;
@@ -372,15 +332,22 @@ a:hover {
 .center-column {
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
-
   text-align: center;
 }
 
-/* scrollbar */
+/* Any container that needs stacking and centering */
+.stack-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
 
+/* scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -394,17 +361,15 @@ a:hover {
   border-radius: 999px;
 }
 
-/* mobile */
-
+/* mobile responsive */
 @media (max-width: 768px) {
   main {
     gap: 2rem;
-    padding-top: 0;
-    padding-bottom: 3rem;
+    padding: 0 1rem 3rem 1rem;
   }
 
   .hero {
-    padding: 2rem 0;
+    padding: 1rem 0;
   }
 
   .card {
@@ -421,5 +386,194 @@ a:hover {
   button,
   .btn {
     width: 100%;
+    max-width: 300px;
   }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+  }
+}
+
+/* Glass button glow styles - add to your existing CSS */
+
+.btn-glow {
+  display: inline-block;
+  min-width: 180px;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 255, 157, 0.35);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 157, 0.25),
+    rgba(0, 255, 157, 0.08)
+  );
+  color: white;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.btn-glow:hover {
+  transform: translateY(-3px);
+  border-color: var(--neon);
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+  color: white;
+  text-decoration: none;
+}
+
+.btn-glow:active {
+  transform: translateY(0);
+}
+
+/* Full width on mobile */
+@media (max-width: 768px) {
+  .btn-glow {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Home navigation container */
+.home-nav {
+  position: fixed;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 1000;
+}
+
+/* Home button with greenish-red hue */
+.btn-home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  min-width: auto;
+  padding: 0.75rem 1.5rem;
+  border-radius: 16px;
+
+  /* Greenish-red hue - mix of neon green and warm red */
+  border: 1px solid rgba(0, 255, 157, 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 157, 0.2),
+    rgba(255, 80, 80, 0.15)
+  );
+
+  color: white;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease, background 0.25s ease;
+}
+
+.btn-home:hover {
+  transform: translateY(-2px);
+
+  /* Intensify both green and red on hover */
+  border-color: rgba(0, 255, 157, 0.7);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 157, 0.3),
+    rgba(255, 80, 80, 0.25)
+  );
+
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.2), 0 0 10px rgba(255, 80, 80, 0.15);
+}
+
+.btn-home:active {
+  transform: translateY(0);
+}
+
+/* Optional: Add a subtle glow effect */
+.btn-home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--neon), rgba(255, 80, 80, 0.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.btn-home:hover::before {
+  opacity: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .home-nav {
+    top: 1rem;
+    left: 1rem;
+  }
+
+  .btn-home {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* If you want the Home button to be inline (not fixed) */
+.home-nav-inline {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-home-inline {
+  /* Same styles as .btn-home but without fixed positioning */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 255, 157, 0.4);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 157, 0.2),
+    rgba(255, 80, 80, 0.15)
+  );
+  color: white;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  backdrop-filter: blur(12px);
+  transition: all 0.25s ease;
+}
+
+.btn-home-inline:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 255, 157, 0.7);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 157, 0.3),
+    rgba(255, 80, 80, 0.25)
+  );
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.2);
 }
