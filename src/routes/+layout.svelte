@@ -9,10 +9,6 @@
   <main>
     {@render children()}
   </main>
-
-  <footer>
-    <p>Sniffowomo Work</p>
-  </footer>
 </div>
 
 <style>
