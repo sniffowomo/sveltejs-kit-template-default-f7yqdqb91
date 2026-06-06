@@ -1,38 +1,11 @@
-# sv
+# sveltejs-kit-template-default-f7yqdqb91
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+- [sveltejs-kit-template-default-f7yqdqb91](#sveltejs-kit-template-default-f7yqdqb91)
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+1. This is the main workspace for the Learning Svelte video to understand stuffs
+2. You are re doing this ,
+3. It is an extension of [`https://github.com/sniffowomo/sn-lq-usk-2`](https://github.com/sniffowomo/sn-lq-usk-2) , which itself is an extension, due no credits.
+4. This will be a dump of stuff
+5. Also not all settings work here
+6. When starting the project, this looks like the counter starter project
+7. That will be changed
