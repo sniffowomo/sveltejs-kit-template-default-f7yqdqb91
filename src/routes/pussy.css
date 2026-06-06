@@ -1,0 +1,425 @@
+@import "@fontsource/fira-mono";
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --bg: #02060a;
+  --bg-secondary: #071015;
+
+  --panel: rgba(5, 18, 22, 0.7);
+
+  --neon: #00ff9d;
+  --neon-soft: #00d9ff;
+
+  --text: #f7fffb;
+  --text-muted: #95b0a8;
+
+  --font-display: "Orbitron", sans-serif;
+  --font-body: Inter, system-ui, sans-serif;
+  --font-mono: "Fira Mono", monospace;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  min-height: 100vh;
+
+  font-family: var(--font-body);
+  color: var(--text);
+
+  background: radial-gradient(
+      circle at 15% 50%,
+      rgba(0, 255, 157, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(circle at 85% 50%, rgba(0, 255, 157, 0.08), transparent 25%),
+    linear-gradient(180deg, var(--bg), var(--bg-secondary));
+
+  overflow-x: hidden;
+}
+
+/* ambient glows */
+
+body::before,
+body::after {
+  content: "";
+
+  position: fixed;
+
+  top: 50%;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  background: rgba(0, 255, 157, 0.12);
+
+  filter: blur(140px);
+
+  transform: translateY(-50%);
+
+  pointer-events: none;
+
+  z-index: -1;
+}
+
+body::before {
+  left: -150px;
+}
+
+body::after {
+  right: -150px;
+}
+
+/* main layout */
+
+main {
+  width: min(1400px, 100%);
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 4rem;
+
+  padding: 0 clamp(1rem, 4vw, 3rem) 6rem;
+}
+
+/* hero - removed full viewport height */
+
+.hero {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  gap: 1.5rem;
+
+  padding: 4rem 0;
+}
+
+/* reusable glass cards */
+
+.card {
+  width: min(1100px, 100%);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: clamp(2rem, 5vw, 4rem);
+
+  background: var(--panel);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border-radius: 32px;
+
+  border: 1px solid rgba(0, 255, 157, 0.15);
+
+  box-shadow: 0 0 60px rgba(0, 255, 157, 0.04),
+    inset 0 0 60px rgba(0, 255, 157, 0.03);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04),
+    transparent 40%
+  );
+
+  pointer-events: none;
+}
+
+.card-content {
+  width: min(900px, 100%);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  gap: 1.5rem;
+}
+
+/* headings */
+
+h1 {
+  font-family: var(--font-display);
+
+  font-size: clamp(3rem, 8vw, 8rem);
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+
+  background: linear-gradient(180deg, #ffffff, var(--neon));
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+
+  text-shadow: 0 0 20px rgba(0, 255, 157, 0.8), 0 0 50px rgba(0, 255, 157, 0.3);
+}
+
+h2 {
+  font-family: var(--font-display);
+
+  font-size: clamp(1rem, 2vw, 1.8rem);
+
+  font-weight: 600;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.2em;
+
+  color: var(--neon);
+
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.6);
+}
+
+h3 {
+  font-family: var(--font-display);
+
+  font-size: clamp(1.2rem, 3vw, 2rem);
+
+  color: var(--neon);
+}
+
+/* text */
+
+p {
+  max-width: 700px;
+
+  font-size: 1.1rem;
+
+  line-height: 1.8;
+
+  color: var(--text-muted);
+}
+
+/* buttons */
+
+button,
+.btn {
+  min-width: 180px;
+
+  padding: 1rem 2rem;
+
+  border-radius: 16px;
+
+  border: 1px solid rgba(0, 255, 157, 0.35);
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 157, 0.25),
+    rgba(0, 255, 157, 0.08)
+  );
+
+  color: white;
+
+  font-family: var(--font-display);
+
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  backdrop-filter: blur(10px);
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+button:hover,
+.btn:hover {
+  transform: translateY(-3px);
+
+  border-color: var(--neon);
+
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+}
+
+button:active,
+.btn:active {
+  transform: translateY(0);
+}
+
+/* button groups */
+
+.actions,
+.button-group {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 1rem;
+
+  margin-top: 1rem;
+}
+
+/* forms */
+
+input,
+textarea,
+select {
+  width: min(500px, 100%);
+
+  padding: 1rem 1.25rem;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(0, 255, 157, 0.15);
+
+  color: white;
+
+  font: inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+
+  border-color: var(--neon);
+
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+}
+
+/* code */
+
+pre {
+  width: 100%;
+
+  padding: 1.5rem;
+
+  overflow-x: auto;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(0, 255, 157, 0.08);
+
+  font-family: var(--font-mono);
+
+  color: #d7fff0;
+}
+
+/* links */
+
+a {
+  color: var(--neon);
+  text-decoration: none;
+}
+
+a:hover {
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+}
+
+/* utilities */
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.center-column {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #02060a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon);
+  border-radius: 999px;
+}
+
+/* mobile */
+
+@media (max-width: 768px) {
+  main {
+    gap: 2rem;
+    padding-top: 0;
+    padding-bottom: 3rem;
+  }
+
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .card {
+    padding: 2rem;
+    border-radius: 24px;
+  }
+
+  .actions,
+  .button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  button,
+  .btn {
+    width: 100%;
+  }
+}
