@@ -1,5 +1,5 @@
 <script>
-  import Home from "$lib/Home/+page.svelte";
+  import Home from "$lib/vag/Home/+page.svelte";
 </script>
 
 <Home />
