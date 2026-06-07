@@ -18,3 +18,5 @@
 - Deployed to netlify , every push trigger deployment, way easier than using the CLi
 - Note multiple pushes execute the the build
 -
+- Note Not using this method , since his considered to be legacy
+  and you dont want to learn the old stuff
