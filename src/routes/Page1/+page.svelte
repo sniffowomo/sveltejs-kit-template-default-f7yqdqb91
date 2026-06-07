@@ -6,16 +6,10 @@
 
 <main>
   <section class="hero">
-    <h1>Svelte Tutorial Work</h1>
-    <h2>Tutorial Work Dumped here</h2>
+    <h1>L1 - Work start</h1>
+    <h2>Basic Raactivity Work</h2>
   </section>
 
-  <section class="card">
-    <div class="card-content">
-      <p>Some content here.</p>
-      <h2>Contact</h2>
-    </div>
-  </section>
   <section class="card">
     <div class="card-content">
       <h2>Contact</h2>
