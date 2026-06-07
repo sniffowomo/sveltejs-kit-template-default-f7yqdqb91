@@ -12,8 +12,8 @@
 
   <section class="card">
     <div class="card-content">
-      <h2>Contact</h2>
       <p>Some content here.</p>
+      <h2>Contact</h2>
     </div>
   </section>
   <section class="card">
