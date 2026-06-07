@@ -16,4 +16,10 @@
       <p>Some content here.</p>
     </div>
   </section>
+  <section class="card">
+    <div class="card-content">
+      <h2>Contact</h2>
+      <p>Some content here.</p>
+    </div>
+  </section>
 </main>

@@ -186,7 +186,7 @@ main > * {
 /* headings - always centered */
 h1 {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 5vw, 8rem);
+  font-size: clamp(3rem, 2vw, 8rem);
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0.08em;
@@ -376,11 +376,6 @@ a:hover {
 
   .hero {
     padding: 1rem 0;
-  }
-
-  .card {
-    padding: 2rem;
-    border-radius: 24px;
   }
 
   .actions,
